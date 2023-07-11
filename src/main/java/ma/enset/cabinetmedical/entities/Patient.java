@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 import net.bytebuddy.build.ToStringPlugin;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import javax.persistence.*;
 import java.util.Collection;
@@ -20,6 +21,7 @@ public class Patient {
     private String cin;
     private String tel;
     private String email;
+    @DateTimeFormat(pattern = "YYYY-mm-dd")
     @Temporal(TemporalType.DATE)
     private Date dateNaissaince;
     @OneToMany(mappedBy = "patient")
